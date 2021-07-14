@@ -1,10 +1,13 @@
 # QRCode-generator-web-app
 
 INSTALL:
+1) Get poetry
 ```
-sudo apt install curl
+https://python-poetry.org/docs/
 ```
+2) Execute
+```
+$ source $HOME/.poetry/env
+```
+to activate poerty
 
-```
-curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3 -
-```
