@@ -9,4 +9,5 @@ https://python-poetry.org/docs/
 ```
 $ source $HOME/.poetry/env
 ```
+to activate poerty
 
