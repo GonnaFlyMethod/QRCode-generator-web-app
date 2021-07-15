@@ -19,6 +19,15 @@ body {
 	height: 380px;
 }
 
+#qr_code_will_be_deleted_msg
+{
+	position: absolute;
+	left: 63rem;
+	top: 18rem;
+	width: 340px;
+	display: none;
+}
+
 
 #url_input_and_download_button_block{
 	position: absolute;
@@ -28,7 +37,7 @@ body {
 
 #submit_button_and_download_button{
 	padding-top: 1rem;
-	padding-right: 2rem;
+	padding-right: 3.5rem;
 }
 
 
