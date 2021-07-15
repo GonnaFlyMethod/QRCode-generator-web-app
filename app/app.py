@@ -1,9 +1,11 @@
+import threading
 import os
 
 from flask import (Flask, render_template,
                    request, jsonify, after_this_request, send_file)
 
 from qr_code_generator import generate_qr_code
+from file_cleaner import delete_file
 
 
 app = Flask(__name__)
@@ -24,20 +26,30 @@ def index():
 		}
 		response = jsonify(json_py_obj)
 		response.headers.add('Access-Control-Allow-Origin', '*')
+
+		minutes = 10
+		thread_delete_waiter = threading.Thread(target=delete_file,
+			                                    args=(minutes, qr_code_file_path))
+		thread_delete_waiter.start()
 		return response
 
 
-@app.route('/download/<file_name>', methods=['POST'])
+@app.route('/download/<file_name>', methods=['GET'])
 def download_qr_code(file_name):
 	file_path = os.path.join("static", "qr_codes", file_name)
 
 	if os.path.exists(file_path):
+
 		@after_this_request
 		def remove_qr_code_file(response):
-			os.remove(file_path)
+			try:
+				os.remove(file_path)
+			except FileNotFoundError:
+				pass
+
 			return response
 
-		return send_file(file_path, download_rname=file_name,
+		return send_file(file_path, download_name=file_name,
 			             as_attachment=True, max_age=0)
 	else:
 		return render_template("file_does_not_exist.html")

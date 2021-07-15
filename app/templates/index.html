@@ -51,8 +51,6 @@
 		  			    </div>
 	  			    </div>    
 				</form> 
-				<!-- <form method="POST" id="download_form" enctype="multipart/form-data" >
-				</form> -->
     		</div>
   		</div>
   		<div class="row">
@@ -129,16 +127,16 @@
 		$("#download_qr_code_button").click(function(){
 
 			fetch(`/download/${file_name}`).then(resp => resp.blob()).then(blob => {
-    			const url = window.URL.createObjectURL(blob);
-    			const a = document.createElement('a');
-    			a.style.display = 'none';
-    		a.href = url;
+    				const url = window.URL.createObjectURL(blob);
+    				const a = document.createElement('a');
+    				a.style.display = 'none';
+    				a.href = url;
 
-    		a.download = file_name;
-    		document.body.appendChild(a);
-    		a.click();
-    		window.URL.revokeObjectURL(url);
-  			}).catch(() => alert('Oh no! Something went wrong... Try again!'));
+    				a.download = file_name;
+    				document.body.appendChild(a);
+    				a.click();
+    				window.URL.revokeObjectURL(url);
+  				}).catch(() => alert('Oh no! Something went wrong... Try again!'));
 			
  			$("#user_url").val("");
 			$("#download_qr_code_button").blur();
