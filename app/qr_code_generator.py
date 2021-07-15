@@ -1,3 +1,5 @@
+import os
+
 from datetime import datetime, date
 
 import qrcode
@@ -15,13 +17,9 @@ def generate_qr_code(url: str) -> str:
 	seconds = timestamp.second
 	microseconds = timestamp.microsecond
 
-	file_path = f"qr_codes/qr_code_{date_today}_{hours}_{minutes}_{seconds}_{microseconds}"
-	#file_object = io.BytesIO()
-	#img.save(file_object, 'PNG')
+	file_name = f"qr_code_{date_today}_{hours}_{minutes}_{seconds}_{microseconds}.png"
+	file_path = os.path.join("static", "qr_codes", file_name)
 
-	# Move to beginning of file so `send_file()` it will read from start
-	#file_object.seek(0)
 	img.save(file_path)
-
-	return file_path
+	return file_name, file_path
 
