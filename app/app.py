@@ -17,10 +17,10 @@ def index():
 		url = request.form['content']
 		qr_code_file_file_path = generate_qr_code(url)
 
-		@after_this_request
-		def remove_qr_code_file(response):
-			os.remove(qr_code_file_file_path)
-			return response
+		# @after_this_request
+		# def remove_qr_code_file(response):
+		# 	os.remove(qr_code_file_file_path)
+		# 	return response
 
 		return send_file(qr_code_file_file_path,
 			             mimetype='image/PNG',
