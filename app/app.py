@@ -40,17 +40,27 @@ def download_qr_code(file_name):
 		return send_file(file_path, download_rname=file_name,
 			             as_attachment=True, max_age=0)
 	else:
-		return "File does not exist"
+		return render_template("file_does_not_exist.html")
 
 
-@app.route('/test', methods=['GET'])
-def test():
-		return render_template("error_404.html")
+@app.errorhandler(403)
+def bad_request_error_handler(error):
+    return render_template("error_400.html")
+
+
+@app.errorhandler(403)
+def forbidden_error_handler(error):
+    return render_template("error_403.html")
 
 
 @app.errorhandler(404)
-def page_not_found(error):
-    return 'This page does not exist', 404
+def page_not_found_error_handler(error):
+    return render_template("error_404.html")
+
+
+@app.errorhandler(500)
+def server_error_hanlder(error):
+    return render_template("error_500.html")
 
 
 if __name__ == "__main__":
