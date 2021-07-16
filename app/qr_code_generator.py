@@ -18,7 +18,7 @@ def generate_qr_code(url: str) -> str:
 	microseconds = timestamp.microsecond
 
 	file_name = f"qr_code_{date_today}_{hours}_{minutes}_{seconds}_{microseconds}.png"
-	file_path = f"/home/alexander/QRCode-generator-web-app/static/qr_codes/{file_name}"
+	file_path = os.path.join("static", "qr_codes", file_name)
 
 	img.save(file_path)
 	return file_name, file_path
