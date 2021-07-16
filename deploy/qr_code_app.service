@@ -1,0 +1,12 @@
+[Unit]
+Description=qr code generator flask app linux service
+After=multi-user.target
+
+[Service]
+Type=simple
+Restart=always
+WorkingDirectory=/home/<Your username>/QRCode-generator-web-app/app
+ExecStart=/home/<Your username>/QRCode-generator-web-app/app/venv/bin/gunicorn -w 3 app:app 
+
+[Install]
+WantedBy=multi-user.target
