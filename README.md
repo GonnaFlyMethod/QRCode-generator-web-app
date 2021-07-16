@@ -17,8 +17,12 @@ to activate poerty
 poetry shell
 ```
 to activate virtual env
-6) To check packages ,which are installed in the virtual env, execute:
+6) To check packages ,which are not installed yet, execute:
 ```
 poetry show
+```
+7) To install packages execute:
+```
+poetry install
 ```
 
