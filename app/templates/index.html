@@ -84,6 +84,18 @@
 	</div>
 
 <script>
+
+	function validURL(str) {
+  	
+  		var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+    		'((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+    		'((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+    		'(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+    		'(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+    		'(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+  			return !!pattern.test(str);
+	}
+
 	$(document).ready(function(){
 		$("#download_qr_code_button").css("display", "none");
 
@@ -95,6 +107,17 @@
 
 		$('#generate_qr_code_form').submit(function() {
 			let user_url = $('#user_url').val();
+
+			if (!user_url)
+			{
+				alert("The URL field below is empty");
+				return false;
+			}
+			else if (!validURL(user_url))
+			{
+				alert("You entered invalid URL");
+				return false;
+			}
 
 			$.ajax({
 			    url: "/",
