@@ -25,7 +25,6 @@ body {
 
 #qr_code_img_block{
 	margin-top: 1rem;
-	padding-left: 3%;
 }
 
 
@@ -101,6 +100,15 @@ a{
 
 	}
 }
+
+
+@media screen and (min-width: 760px){
+
+	#qr_code_img_block{
+		margin-left: -3.5%;
+	}
+}
+
 
 @media screen and (min-width: 801px){
 
