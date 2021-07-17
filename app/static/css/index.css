@@ -67,9 +67,27 @@ a{
 }
 
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 460px){
 	#site_author{
-		padding-left: 8%;
+		padding-left: 10%;
+	}
+
+	#qr_code_img_block{
+		padding-left: 10%;
+	}
+
+
+	#url_input_and_download_button_block{
+		left: 5.2%;
+		right: 12%;
+
+	}
+}
+
+
+@media screen and (min-width: 461px){
+	#site_author{
+		padding-left: 7%;
 	}
 
 	#qr_code_img_block{
