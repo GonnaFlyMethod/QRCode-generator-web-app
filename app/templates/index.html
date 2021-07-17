@@ -37,10 +37,6 @@
 				<!-- Qr code image will be appended here -->
 
 			</div>
-
-			<div class="col-xs-6 text-center" id="qr_code_will_be_deleted_msg">
-				<p>Each new generated QR code will be deleted from the server after 10 minutes </p>
-			</div>
 		</div>
 
 	</div>
@@ -124,11 +120,6 @@
 			    	file_path = data.qr_code_file_path;
 
 			        $('#submit_form_button').blur();
-
-			        if (!delete_warning_was_shown)
-			        {
-			        	$("#qr_code_will_be_deleted_msg").css("display", "inline");
-			        }
 			        
 			        if (!generated && !downloaded)
 			        {
@@ -143,6 +134,12 @@
 			        	$('#img_qr_code').remove();
 
 			        	$('#qr_code_img_block').append(`<img src="${file_path}" id="img_qr_code" class="img-thumbnail">`);
+			        }
+
+
+			        if (!delete_warning_was_shown)
+			        {
+			        	alert("Each new generated QR code will be deleted from the server after 10 minutes")
 			        }
 
 			    },
