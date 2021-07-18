@@ -9,20 +9,10 @@ https://python-poetry.org/docs/
 ```
 $ source $HOME/.poetry/env
 ```
-to activate poerty
+to activate poetry
 
-3) Go to the repository with the project
+3) Go to the repository with the project (QRCode-generator-web-app/app)
 4) Then execute
 ```
-poetry shell
+poetry run python3 app.py
 ```
-to activate virtual env
-6) To check packages ,which are not installed yet, execute:
-```
-poetry show
-```
-7) To install packages execute:
-```
-poetry install
-```
-
