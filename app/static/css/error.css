@@ -15,21 +15,7 @@ body {
 }
 
 
-#site_footer{
-	color: white;
-	position: absolute;
-	top: 43rem;
-	padding-left: 17rem;
-}
-
 #return_to_main_page_link{
 	color: inherit !important;
 	font-size: 30px;
-}
-
-
-#author_of_site{
-	text-decoration: none !important;
-	color: inherit !important;
-
 }

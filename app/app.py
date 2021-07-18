@@ -55,7 +55,7 @@ def download_qr_code(file_name):
 		return render_template("file_does_not_exist.html")
 
 
-@app.errorhandler(403)
+@app.errorhandler(400)
 def bad_request_error_handler(error):
     return render_template("error_400.html")
 

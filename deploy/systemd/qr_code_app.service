@@ -6,7 +6,7 @@ After=multi-user.target
 Type=simple
 Restart=always
 WorkingDirectory=/home/<Your username>/QRCode-generator-web-app/app
-ExecStart=/home/<Your username>/QRCode-generator-web-app/app/venv/bin/gunicorn -w 3 app:app 
+ExecStart=/home/<Your username>/.cache/pypoetry/virtualenvs/qrcode-generator-U1M3FNmN-py3.8/bin/gunicorn -w 3 app:app
 
 [Install]
 WantedBy=multi-user.target
