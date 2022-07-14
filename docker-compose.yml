@@ -1,0 +1,23 @@
+services:
+  app:
+    build:
+      context: .
+      target: app
+    environment:
+      APP_PORT: ${APP_PORT}
+    ports:
+      - ${APP_PORT}:${APP_PORT}
+    volumes:
+      - sharedStaticFiles:/app/static
+
+  nginx:
+    build:
+      context: .
+      target: nginx
+    ports:
+      - 80:80
+    volumes:
+      - sharedStaticFiles:/static
+
+volumes:
+  sharedStaticFiles:

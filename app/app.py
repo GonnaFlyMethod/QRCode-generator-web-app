@@ -76,4 +76,5 @@ def server_error_hanlder(error):
 
 
 if __name__ == "__main__":
-	app.run(debug=False)
+	app_port = os.environ.get("APP_PORT", 5000)
+	app.run(debug=False, port=app_port)
